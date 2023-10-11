@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hey Buddy</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url('bg.jpg') ;
+            z-index: -2;
+        }
+
+        .header {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .header img {
+            max-width: 50px;
+            background-color: transparent;
+            border-radius: 50%;
+        }
+
+        model-viewer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        width: 100vw;
+        height: 100vh;
+        z-index: 2;
+    }
+
+    .big-text {
+             position: absolute; 
+            font-size: 10vw;
+            font-weight: bold;
+            color: transparent;
+            -webkit-text-stroke: 4px rgba(255, 255, 255, 0.456); /* Outline color and width */
+            text-align: center;
+            animation: moveUp 4s forwards; /* Apply animation to move the text up */
+            z-index: -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 12%;
+            left: 53%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+        }
+
+        .big-text1 {
+             position: absolute; 
+            font-size: 5vw;
+            font-weight: bold;
+            color: rgba(31, 31, 31, 0.118); /* Outline color and width */
+            text-align: center;
+            animation: moveUp 4s forwards; /* Apply animation to move the text up */
+            z-index: -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 50%;
+            left: 53%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            z-index: -2;
+        }
+
+        .content-left{
+            font-size: 1vw;
+            font-weight: bold;
+            color: rgba(0, 0, 0, 0.779);
+            
+         
+            animation: moveUp1 4s forwards; /* Apply animation to move the text up */
+            z-index: 1;
+        }
+
+        @keyframes moveUp {
+            from {
+                margin-top: 100vh; /* Initial position */
+            }
+            to {
+                margin-top: 5vh; /* Final position after animation */
+            }
+        }
+
+        @keyframes moveUp1 {
+            from {
+                margin-top: 100vh; /* Initial position */
+            }
+            to {
+                margin-top: 0vh; /* Final position after animation */
+            }
+        }
+
+
+        #ar-button {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: transparent;
+            border: 2px solid #4384fd;
+            color: #1e75ed;
+            cursor: pointer;
+        }
+
+        /* Add this to your existing CSS styles */
+        .navbar {
+            width: 100%;
+           
+            padding: 10px 0; /* Vertical and horizontal padding inside the navbar */
+            text-align: center;
+            }
+
+        .navbar a {
+            color: white; /* Text color of the navigation links */
+            margin: 0 15px; /* Spacing between the navigation links */
+             text-decoration: none; /* Remove underline from links */
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+
+        
+
+/* Add a colored box as an overlay */
+.navbar a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1e74ed68; /* Background color of the overlay */
+    opacity: 0; /* Initially, the overlay is transparent */
+    transition: opacity 0.3s ease; /* Fade-in effect duration and timing function */
+}
+
+/* Define the hover effect to make the overlay visible */
+.navbar a:hover::before {
+    opacity: 0.7; /* Make the overlay visible on hover */
+}
+
+.Hotspot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #4384fd4b;
+    color: rgba(255, 255, 255, 0.33);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Add transform property to the transition */
+}
+
+.Hotspot:hover {
+    background-color: #1e75ed; /* Change background color on hover */
+    transform: scale(1.1); /* Apply zoom-in effect on hover */
+}
+    </style>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
+</head>
+<body>
+    
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </div>
+   
+    <!-- <div style="position: absolute; left: 20px; top: 40%; transform: translateY(-50%);">
+        
+        <div class="content-left">
+            <h1>Welcome to Your Dream Home</h1>
+            <p>Discover the Perfect Property for You</p>
+        </div>
+    </div> -->
+    <model-viewer id="hotspot4" src="modern_city_block.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="poster.webp" shadow-intensity="1" camera-orbit="38.58deg 88.45deg 94920m" field-of-view="21.85deg">
+        <div class="big-text">Vatika Green</div>
+        <div class="big-text1">Unlocking Doors, Fulfilling Dreams.<br> <br> Where Your Home Story Begins</div>
+        
+        <button class="Hotspot" slot="hotspot-1" data-position="-1362.035721832678m -23.54144214165808m 2742.6990149458634m" data-normal="-1.1147417452928665e-7m 0.9999999999999869m -1.1881353567191484e-7m" data-visibility-attribute="visible">
+            <div class="HotspotAnnotation"></div>
+        </button><button class="Hotspot" slot="hotspot-2" 
+        data-position="-22038.04584161269m 8659.636906153848m 12589.777240120624m" 
+        data-normal="0.9202217933100286m 1.5030494977167554e-8m -0.39139730596578604m"
+        data-orbit="-50.94862deg 84.56856deg 0.06545582m"
+         data-target="-0.04384604m 0.07348397m -0.1213202m"
+         data-visibility-attribute="visible">
+            <div class="HotspotAnnotation"></div>
+        </button>
+        <button class="Hotspot" slot="hotspot-1" 
+        data-position="-2726.380278573677m -103.89957227525156m 6533.92932090519m"
+         data-normal="-0.048655066152290496m 0.9987962380770752m 0.006225700024820747m" 
+         data-orbit="-442.7deg 22.5deg 88400m"
+         data-visibility-attribute="visible">
+            <div class="HotspotAnnotation"></div>
+        </button>
+        <div class="progress-bar hide" slot="progress-bar">
+            <div class="update-bar"></div>
+        </div>
+        
+      
+      
+    </model-viewer>
+
+    <script type="module">
+        const modelViewer2 = document.querySelector("#hotspot4");
+        const annotationClicked = (annotation) => {
+          let dataset = annotation.dataset;
+          modelViewer2.cameraTarget = dataset.target;
+          modelViewer2.cameraOrbit = dataset.orbit;
+          modelViewer2.fieldOfView = '45deg';
+        }
+      
+        modelViewer2.querySelectorAll('button').forEach((hotspot) => {
+          hotspot.addEventListener('click', () => annotationClicked(hotspot));
+        });
+      </script>
+    
+</body>
+</html>
